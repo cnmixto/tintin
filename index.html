@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Aventuras de Tintín</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: 0 auto 15px auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .season-section {
+            margin-bottom: 50px;
+        }
+
+        .season-title {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .episode-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .episode-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .episode-title {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .episode-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .meta-tag {
+            background: #ecf0f1;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .episode-synopsis {
+            font-size: 0.95em;
+            color: #555555;
+            margin: 0;
+        }
+
+        .episode-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-watch {
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-watch:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .episode-card {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .episode-content {
+                flex: 1;
+            }
+            .episode-actions {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Las Aventuras de Tintín</h1>
+    <p>Tintín, eterno adolescente sin familia conocida, es reportero que en realidad actúa más como aventurero o detective. Viaja por todo el mundo acompañado de su inseparable perro Milú con el propósito de enfrentarse a las fuerzas del mal para proteger a los débiles y a los oprimidos y saciar su inagotable sed de aventuras.</p>
+    <div class="badges">
+        <span class="badge">IMDb 8,3</span>
+        <span class="badge">3 Temporadas</span>
+        <span class="badge">Infantil • Aventura • Excitante</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- TEMPORADA 1 -->
+    <section class="season-section">
+        <h2 class="season-title">Temporada 1</h2>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">1. El Cangrejo De Las Pinzas De Oro - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>1 oct 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Una misteriosa etiqueta en una lata vacía de cangrejo lleva a Tintín y Milú a un peligroso encuentro con una banda de despiadados contrabandistas.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092697/t1-ep-1/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">2. El Cangrejo De Las Pinzas De Oro - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>8 oct 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Con un poco de ayuda de los detectives Hernández y Fernández, Tintín, Milú y el capitán Haddock buscan llevar una operación de contrabando internacional ante la justicia.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092698/t1-ep-2/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">3. El Secreto Del Unicornio - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>15 oct 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Un aparentemente inocente modelo antiguo de un barco revela un secreto que podría llevar a Tintín y Milú hasta un viejo tesoro.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092700/t1-ep-3/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">4. El Secreto Del Unicornio - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>22 oct 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Un codicioso coleccionista toma medidas drásticas para evitar que Tintín, Milú y el capitán Haddock intenten reunir las tres partes del mapa de un antiguo tesoro.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092725/t1-ep-4/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">5. El Tesoro De Rackam Rojo</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>29 oct 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Con la ayuda del excéntrico profesor Tornasol, Tintín, Milú y el capitán Haddock se embarcan en un viaje para recuperar el tesoro hundido del legendario pirata, Rackham el Rojo.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092727/t1-ep-5/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">6. Los Cigarros Del Faraón - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>5 nov 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tras prometer ayudarle a un aturdido arqueólogo a encontrar las tumbas perdidas de un antiguo faraón, Tintín y Milú realizan un peligroso descubrimiento.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092730/t1-ep-6/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">7. Los Cigarros Del Faraón - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>12 nov 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y Milú persiguen a una sociedad secreta de contrabandistas desesperados de Egipto hasta la India.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092731/t1-ep-7/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">8. El Loto Azul - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>19 nov 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y Milú viajan a Hong Kong donde unen fuerzas con una sociedad dedicada a eliminar el contrabando.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092755/t1-ep-8/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">9. El Loto Azul - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>26 nov 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y Milú se enfrentan cara a cara con los líderes de un grupo de traficantes internacionales en una confrontación final.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092756/t1-ep-9/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">10. La Isla Negra - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>8 dic 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y Milú se encuentran en el lugar equivocado en el momento equivocado y descubren una operación de falsificación de dinero.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092809/t1-ep-10/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">11. La Isla Negra - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>8 dic 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y Milú viajan a una isla misteriosa cerca de Escocia, la cual sospechan que es la fuente de la conspiración del dinero falso.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092810/t1-ep-11/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">12. El Asunto Tornasol - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>15 dic 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Extraños eventos en Moulinsart y el secuestro del profesor Tornasol llevan a Tintín, Milú y al capitán Haddock a una peligrosa misión de rescate.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092812/t1-ep-12/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">13. El Asunto Tornasol - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>22 dic 1991</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín, Milú y el capitán Haddock deben rescatar a su excéntrico amigo, el profesor Tornasol de los secuestradores bordurios.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092814/t1-ep-13/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPORADA 2 -->
+    <section class="season-section">
+        <h2 class="season-title">Temporada 2</h2>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">1. La Estrella Misteriosa</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>5 ene 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Cuando un gran meteorito que contiene un poderoso mineral desconocido choca en el océano Ártico, Tintín, Milú, el capitán Haddock y un equipo de científicos salen a una peligrosa misión para encontrarlo.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092983/t2-ep-1/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">2. La Oreja Rota - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>12 ene 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y Milú buscan un ídolo perdido solo para descubrir que unos criminales desesperados también lo están buscando.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092984/t2-ep-2/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">3. La Oreja Rota - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>19 ene 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">La búsqueda de un ídolo perdido lleva a Tintín y Milú a través de una revolución y una peligrosa misión en la jungla para hallar una respuesta.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092985/t2-ep-3/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">4. El Cetro De Ottokar - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>26 ene 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Una buena acción de Tintín y Milú con un ligeramente excéntrico investigador los lleva al inestable reino de Syldavia.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092986/t2-ep-4/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">5. El Cetro De Ottokar - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>2 feb 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y  Milú deben recuperar el cetro perdido del rey Ottokar antes de que el legítimo rey sea obligado a abdicar por fuerzas codiciosas.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092987/t2-ep-5/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">6. Tintín En El Tíbet - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>5 abr 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Cuando el avión de su amigo se estrella en las montañas del Tíbet, Tintín se niega a aceptar que está muerto y se lanza a un arriesgado viaje para encontrarlo.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092989/t2-ep-6/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">7. Tintín En El Tíbet - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>12 abr 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Mientras busca a un amigo perdido en las peligrosas montañas del Tíbet, Tintín se encuentra al legendario Yeti.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1092991/t2-ep-7/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">8. Tintín Y Los Pícaros - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>19 abr 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín cae en una peligrosa trampa después de que tres de sus amigos son arrestados equivocadamente en Sudamérica.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093582/t2-ep-8/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">9. Tintín Y Los Pícaros - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>26 abr 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín queda atrapado en medio de un golpe de Estado sudamericano mientras intenta rescatar a sus amigos.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093583/t2-ep-9/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">10. Tintín En El País Del Oro Negro - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>3 may 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín se infiltra encubierto al Medio Oriente  para resolver una misteriosa crisis petrolera e inadvertidamente se encuentra envuelto en un intento de golpe de Estado.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093584/t2-ep-10/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">11. Tintín En El País Del Oro Negro - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>10 may 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Mientras intenta resolver una misteriosa crisis petrolera, Tintín descubre un diabólico plan para dar inicio a una guerra mundial.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093588/t2-ep-11/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">12. Stock De Coquis - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>17 may 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y el capitán Haddock viajan al Khemed para rescatar al emir del peligro de tratantes armados que han derrocado a su gobierno.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093590/t2-ep-12/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">13. Stock De Coquis - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>24 may 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y el capitán Haddock intentan detener a un terrible círculo de traficantes de refugiados y terminan atrapados con otros prisioneros en el mar.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093592/t2-ep-13/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPORADA 3 -->
+    <section class="season-section">
+        <h2 class="season-title">Temporada 3</h2>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">1. Vuelo 714 Para Sidney - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>5 jul 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín queda atrapado en el secuestro de un desagradable millonario y descubre que un viejo adversario está detrás del atentado.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093595/t3-ep-1/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">2. Vuelo 714 Para Sidney - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>12 jul 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Mientras intenta rescatar a un desagradable millonario secuestrado, Tintín recibe ayuda de una fuente insospechada.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093596/t3-ep-2/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">3. Las 7 Bolas De Cristal - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>19 jul 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín investiga la misteriosa enfermedad que casualmente afecta a siete miembros de una expedición por Sudamérica.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093604/t3-ep-3/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">4. Las 7 Bolas De Cristal - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>26 jul 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y el capitán Haddock descubren que el profesor Tornasol ha sido raptado.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093606/t3-ep-4/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">5. El Templo Del Sol - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>2 ago 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín y el capitán viajan a Perú en pos del profesor Tornasol.  Cruzan las ardientes arenas del desierto persiguiendo a los captores.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093607/t3-ep-5/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">6. El Templo Del Sol - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>9 ago 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Buscando a los prisioneros y al profesor Tornasol, Tintín y el capitán Haddock se dirigen al "Templo del Sol".  Para alcanzar su destino, primero deben superar muchos obstáculos.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093611/t3-ep-6/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">7. Las Joyas De La Castafiore - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>16 ago 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Cuando el capitán Haddock se lastima, recibe una visita sorpresa de Bianca Castafiore, quien está preocupada por sus preciadas joyas.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093614/t3-ep-7/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">8. Las Joyas De La Castafiore - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>23 ago 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Cuando las preciadas joyas de Bianca Castafiore desaparecen, Tintín investiga secretamente la situación.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093617/t3-ep-8/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">9. Objetivo La Luna - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>30 ago 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Después de recibir un telegrama del profesor Tornasol, Tintín y el capitán Haddock viajan para verlo en el centro atómico de Syldavia.  Pronto descubren que los documentos del cohete secreto han sido robados.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093618/t3-ep-9/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">10. Objetivo La Luna - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>6 sept 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">A Tintín y al capitán Haddock les ofrecen formar parte de una expedición a la Luna.  Mientras ayudan al profesor Tornasol a prepararse para el lanzamiento, Tintín persiste en la búsqueda del espía infiltrado.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093628/t3-ep-10/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">11. Aterrizaje En La Luna - I</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>13 sept 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín, el capitán Haddock, el profesor Tornasol y Wolff despegan hacia la Luna.  Pronto descubren que Hernández y Fernández se han escabullido a bordo.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093629/t3-ep-11/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">12. Aterrizaje En La Luna - II</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>20 sept 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín, el capitán Haddock, Tornasol, Hernández, Fernández y Wolff descubren las maravillas de la Luna.  También encuentran a otra persona a bordo del cohete que amenaza con dejarlos varados.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093630/t3-ep-12/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+
+        <div class="episode-card">
+            <div class="episode-content">
+                <div class="episode-header">
+                    <h3 class="episode-title">13. Tintín En América</h3>
+                    <div class="episode-meta">
+                        <span class="meta-tag">TODOS</span>
+                        <span>22 min</span>
+                        <span>27 sept 1992</span>
+                    </div>
+                </div>
+                <p class="episode-synopsis">Tintín viaja a Chicago para informar sobre los mafiosos y se encuentra cara a cara con un peligroso grupo criminal.</p>
+            </div>
+            <div class="episode-actions">
+                <a href="https://www.allvideo.monster/videos/1093705/t3-ep-13/" target="_blank" class="btn-watch">▶ Ver Episodio</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>Las Aventuras de Tintín &copy; 1991-1992 • Todos los derechos reservados a sus respectivos autores.</p>
+</footer>
+
+</body>
+</html>
